@@ -1,0 +1,19 @@
+{
+  "name": "neural-network",
+  "version": "1.0.0",
+  "description": "neural network for enrolment system",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabriel27109812362/Neural-network.git"
+  },
+  "author": "Gabriel Opolski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gabriel27109812362/Neural-network/issues"
+  },
+  "homepage": "https://github.com/Gabriel27109812362/Neural-network#readme"
+}
