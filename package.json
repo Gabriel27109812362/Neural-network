@@ -2,7 +2,7 @@
   "name": "neural-network",
   "version": "1.0.0",
   "description": "neural network for enrolment system",
-  "main": "app.js",
+  "main": "Network.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
