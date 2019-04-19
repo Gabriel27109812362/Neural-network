@@ -1,8 +1,11 @@
 class Network {
 
    constructor() {
+      this.active = false;
       this.sum = 0;
       this.sigValue = 0;
+      this.bias = 1;
+      this.teachFactor = 0.2;
       this.input = new Array(15);
       this.edges = new Array(15);
       this.result = 0;
@@ -28,6 +31,7 @@ class Network {
       for(let i = 0; i < 15; i++) {
          sum += (this.input[i] * this.edges[i]);
       }
+      sum += this.bias;
       this.sum = sum;
    }
 
@@ -39,24 +43,37 @@ class Network {
    checkToTrain() {
       if(this.result === 0) {
          if(this.sigValue > 0 && this.sigValue < 0.5) {
-            //activate neuron
+            this.active = true;
          } else {
-            //change wages
+            this.active = false;
+            this.changeWages();
          }
       } else {
          if(this.sigValue >= 0.5 && this.sigValue <= 1) {
-            //activate neuron
+            this.active = true;
          } else {
-            //change wages
+            this.active = false;
+            this.changeWages();
          }
       }
    }
 
    changeWages() {
+      for(let i = 0; i < 15; i++) {
+         this.edges[i] += this.teachFactor * (this.result - this.sigValue) *
+                          this.input[i];
+      }
+      this.bias += this.teachFactor * (this.result - this.sigValue);
+   }
 
+   checkForEnterValues() {
+      if(this.result === 0) {
+         return this.sigValue > 0 && this.sigValue < 0.5;
+      } else {
+         return this.sigValue >= 0.5 && this.sigValue <= 1;
+      }
    }
 
 }
-
 module.exports = Network;
 

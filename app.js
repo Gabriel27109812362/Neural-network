@@ -1,11 +1,17 @@
 const Network = require('./Network');
 
 const net = new Network();
-
-net.giveEntry([1, 2, 3, 3, 3, 4, 4, 5, 4, 4, 4, 3, 3, 4, 5],1);
 net.initEdges();
+net.giveEntry(
+   [0.25, 0, 0, 0.25, 0, 0, 0.25, 0, 0.25, 0.25, 0.25, 0.25, 0.25, 0, 0.25],
+   0);
+
+console.log(net.edges);
 net.countSum();
-console.log(net);
 console.log(net.sum);
 console.log(net.countSigValue());
+net.checkToTrain();
+console.log(net.active);
+
+console.log(net.edges, net.bias);
 
